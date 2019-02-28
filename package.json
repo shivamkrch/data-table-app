@@ -1,0 +1,14 @@
+{
+  "name": "data-table-app",
+  "version": "1.0.0",
+  "description": "A data management app where only logged-in users may manipulate data.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shivam Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
