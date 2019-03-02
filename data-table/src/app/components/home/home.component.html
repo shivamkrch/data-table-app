@@ -1,0 +1,21 @@
+<div class="jumbotron text-center p-3 mt-5">
+  <h1 class="display-3">DataTable App</h1>
+  <p class="lead">
+    Welcome to our DataTable application built using angular where authenticated
+    users may mnipulate data.
+  </p>
+  <div>
+    <a
+      class="btn btn-primary mx-2"
+      [routerLink]="['/register']"
+      *ngIf="!authService.loggedIn()"
+      >Register</a
+    >
+    <a
+      class="btn btn-success mx-2 px-4"
+      [routerLink]="['/login']"
+      *ngIf="!authService.loggedIn()"
+      >Login</a
+    >
+  </div>
+</div>

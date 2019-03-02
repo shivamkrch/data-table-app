@@ -1,0 +1,6 @@
+#pwdHS {
+  border: 1px solid #ced4da;
+}
+input.ng-touched.ng-invalid {
+  border-color: rgb(236, 46, 46);
+}

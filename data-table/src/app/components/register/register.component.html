@@ -1,0 +1,90 @@
+<h1 class="display-4 mb-3">Register</h1>
+<p>Already registered? <a [routerLink]="['/login']">Login</a> here.</p>
+<form class="px-3 mt-3" name="regForm" (submit)="register()">
+  <input
+    type="text"
+    name="name"
+    id="name"
+    class="form-control mt-4"
+    placeholder="Full Name"
+    required
+    [(ngModel)]="name"
+    #name1="ngModel"
+    style="text-transform: capitalize"
+  />
+
+  <div
+    class="alert alert-danger p-2 mt-1"
+    *ngIf="name1.touched && name1.invalid && name1.errors.required"
+  >
+    Name is required.
+  </div>
+  <input
+    type="text"
+    name="username"
+    id="username"
+    class="form-control mt-4"
+    placeholder="Username"
+    minlength="5"
+    required
+    [(ngModel)]="username"
+    #uname="ngModel"
+    (keyup)="checkUsername()"
+  />
+  <div
+    class="alert alert-danger p-2 mt-1"
+    *ngIf="uname.invalid && (uname.touched || uname.dirty)"
+  >
+    <div *ngIf="uname.errors.required">Username is required.</div>
+    <div *ngIf="uname.errors.minlength">
+      Username must be at least
+      {{ uname.errors.minlength.requiredLength }} characters long.
+    </div>
+  </div>
+  <div
+    class="alert p-2 m-1"
+    [ngClass]="{ 'alert-danger': !usernameAvb, 'alert-success': usernameAvb }"
+    *ngIf="uname.valid"
+  >
+    <div *ngIf="usernameAvb">Username Available</div>
+    <div *ngIf="!usernameAvb">Username not available</div>
+  </div>
+  <div class="input-group mt-4">
+    <input
+      type="password"
+      name="password"
+      id="password"
+      class="form-control"
+      placeholder="Password"
+      minlength="6"
+      required
+      [(ngModel)]="password"
+      #pwd="ngModel"
+    />
+    <div class="input-group-append">
+      <button class="btn btn-light" type="button" (click)="pwdHST()" id="pwdHS">
+        <i
+          class="fa"
+          [ngClass]="{ 'fa-eye': !pwdHS, 'fa-eye-slash': pwdHS }"
+        ></i>
+      </button>
+    </div>
+  </div>
+  <div
+    class="alert alert-danger p-2 mt-1"
+    *ngIf="pwd.invalid && (pwd.touched || pwd.dirty)"
+  >
+    <div *ngIf="pwd.errors.required">Password is required.</div>
+    <div *ngIf="pwd.errors.minlength">
+      Password must be at least
+      {{ pwd.errors.minlength.requiredLength }} characters long.
+    </div>
+  </div>
+  <button
+    type="submit"
+    class="btn btn-primary mt-4"
+    [disabled]="uname.invalid || pwd.invalid || name1.invalid || !usernameAvb"
+  >
+    Register
+  </button>
+</form>
