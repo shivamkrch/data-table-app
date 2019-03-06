@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.pwdHS = false;
     this.err = false;
+    document.title = "Login | DataTable App";
   }
   pwdHST() {
     var x = document.getElementById("password");

@@ -18,7 +18,10 @@ export class EditUserComponent implements OnInit {
   ngOnInit() {
     let id;
     this.route.params.subscribe(param => (id = param.id));
-    this.authService.getDetails(id).subscribe(res => (this.hero = res));
+    this.authService.getDetails(id).subscribe((res: any) => {
+      this.hero = res;
+      document.title = `Edit User: ${res.name} | DataTable App`;
+    });
   }
   update() {
     this.authService.updateUser(this.hero).subscribe((res: any) => {

@@ -24,7 +24,9 @@ export class NewUserComponent implements OnInit {
   };
   constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    document.title = "New User | DataTable App";
+  }
   insert() {
     this.authService.insert(this.hero).subscribe((res: any) => {
       if (res.success) this.router.navigate(["dashboard"]);

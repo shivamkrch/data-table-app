@@ -9,5 +9,7 @@ import { AuthService } from "src/app/auth.service";
 export class HomeComponent implements OnInit {
   constructor(public authService: AuthService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    document.title = "DataTable App";
+  }
 }

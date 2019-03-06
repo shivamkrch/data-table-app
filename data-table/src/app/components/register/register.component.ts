@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
     this.pwdHS = false;
+    document.title = "Register | DataTable App";
   }
 
   log(x) {

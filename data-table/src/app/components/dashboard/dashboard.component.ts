@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.authService.getData().subscribe(res => (this.data = res));
+    document.title = "Dashboard | DataTable App";
   }
   delete(id) {
     this.authService.deleteUser(id).subscribe(res => console.log(res));
